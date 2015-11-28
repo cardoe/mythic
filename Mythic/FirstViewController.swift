@@ -14,7 +14,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var recordings = [Show]()
+    var shows = [Show]()
+    var recordings = [Recording]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +48,9 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                             print(programs)
                             
                             for obj in programs {
-                                let recording = Show(showDict: obj)
+                                let recording = Recording(recDict: obj)
                                 self.recordings.append(recording)
+                                self.addShowIfNew(recording)
                             }
                             
                             dispatch_async(dispatch_get_main_queue()) {
@@ -70,6 +72,16 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         task.resume()
     }
 
+    func addShowIfNew(recData: Recording) {
+        for show in self.shows {
+            if show.title == recData.title {
+                return
+            }
+        }
+
+        self.shows.append(Show(recording: recData))
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,8 +92,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShowCell",
                 forIndexPath: indexPath) as? ShowCell {
             
-            let recording = recordings[indexPath.row]
-            cell.configureCell(recording)
+            let show = shows[indexPath.row]
+            cell.configureCell(show)
             
             return cell
         }
@@ -94,7 +106,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recordings.count
+        return shows.count
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

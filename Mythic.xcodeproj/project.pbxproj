@@ -16,6 +16,7 @@
 		2F1BEB451BF423A900F685A2 /* MythicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1BEB441BF423A900F685A2 /* MythicUITests.swift */; };
 		2FADC59E1C08E8B700DBC621 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADC59D1C08E8B600DBC621 /* Show.swift */; };
 		2FE6CD821BF928C5008D0442 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6CD811BF928C5008D0442 /* ShowCell.swift */; };
+		2FFA9FB01C0968B1003AF548 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA9FAF1C0968B1003AF548 /* Recording.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2F1BEB461BF423A900F685A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FADC59D1C08E8B600DBC621 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		2FE6CD811BF928C5008D0442 /* ShowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
+		2FFA9FAF1C0968B1003AF548 /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				2F1BEB301BF423A900F685A2 /* Info.plist */,
 				2FE6CD811BF928C5008D0442 /* ShowCell.swift */,
 				2FADC59D1C08E8B600DBC621 /* Show.swift */,
+				2FFA9FAF1C0968B1003AF548 /* Recording.swift */,
 			);
 			path = Mythic;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F1BEB2A1BF423A900F685A2 /* SecondViewController.swift in Sources */,
+				2FFA9FB01C0968B1003AF548 /* Recording.swift in Sources */,
 				2FE6CD821BF928C5008D0442 /* ShowCell.swift in Sources */,
 				2F1BEB261BF423A900F685A2 /* AppDelegate.swift in Sources */,
 				2FADC59E1C08E8B700DBC621 /* Show.swift in Sources */,
