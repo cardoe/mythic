@@ -86,12 +86,24 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                 forIndexPath: indexPath) as? ShowCell {
             
             let show = shows[indexPath.row]
-            cell.configureCell(show)
+            cell.configureCell(show);
+                    
+            if cell.gestureRecognizers?.count == nil {
+                let tap = UITapGestureRecognizer(target: self, action: "tapped:")
+                tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
+                cell.addGestureRecognizer(tap)
+            }
             
             return cell
         }
         
         return ShowCell()
+    }
+    
+    func tapped(gesture: UITapGestureRecognizer) {
+        if let cell = gesture.view as? ShowCell {
+            print("Tap: \(cell.show.title)")
+        }
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

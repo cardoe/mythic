@@ -11,8 +11,12 @@ import UIKit
 class ShowCell: UICollectionViewCell {
     @IBOutlet weak var tvImg: UIImageView!
     @IBOutlet weak var tvLbl: UILabel!
+    var show: Show!
     
     func configureCell(show: Show) {
+        // save a reference to the show for later transisions
+        self.show = show
+        
         if let title = show.title {
             tvLbl.text = title
         }
