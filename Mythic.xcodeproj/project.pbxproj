@@ -14,6 +14,8 @@
 		2F1BEB2F1BF423A900F685A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BEB2E1BF423A900F685A2 /* Assets.xcassets */; };
 		2F1BEB3A1BF423A900F685A2 /* MythicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1BEB391BF423A900F685A2 /* MythicTests.swift */; };
 		2F1BEB451BF423A900F685A2 /* MythicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1BEB441BF423A900F685A2 /* MythicUITests.swift */; };
+		2FADC59E1C08E8B700DBC621 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADC59D1C08E8B600DBC621 /* Show.swift */; };
+		2FE6CD821BF928C5008D0442 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6CD811BF928C5008D0442 /* ShowCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2F1BEB401BF423A900F685A2 /* MythicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MythicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1BEB441BF423A900F685A2 /* MythicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicUITests.swift; sourceTree = "<group>"; };
 		2F1BEB461BF423A900F685A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FADC59D1C08E8B600DBC621 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		2FE6CD811BF928C5008D0442 /* ShowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				2F1BEB2B1BF423A900F685A2 /* Main.storyboard */,
 				2F1BEB2E1BF423A900F685A2 /* Assets.xcassets */,
 				2F1BEB301BF423A900F685A2 /* Info.plist */,
+				2FE6CD811BF928C5008D0442 /* ShowCell.swift */,
+				2FADC59D1C08E8B600DBC621 /* Show.swift */,
 			);
 			path = Mythic;
 			sourceTree = "<group>";
@@ -256,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F1BEB2A1BF423A900F685A2 /* SecondViewController.swift in Sources */,
+				2FE6CD821BF928C5008D0442 /* ShowCell.swift in Sources */,
 				2F1BEB261BF423A900F685A2 /* AppDelegate.swift in Sources */,
+				2FADC59E1C08E8B700DBC621 /* Show.swift in Sources */,
 				2F1BEB281BF423A900F685A2 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +484,7 @@
 				2F1BEB4B1BF423A900F685A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F1BEB4C1BF423A900F685A2 /* Build configuration list for PBXNativeTarget "MythicTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +493,7 @@
 				2F1BEB4E1BF423A900F685A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F1BEB4F1BF423A900F685A2 /* Build configuration list for PBXNativeTarget "MythicUITests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +502,7 @@
 				2F1BEB511BF423A900F685A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
