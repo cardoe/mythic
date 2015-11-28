@@ -14,6 +14,9 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let defaultSize = CGSizeMake(280, 420)
+    let focusSize = CGSizeMake(308, 462)
+    
     var shows = [Show]()
     var recordings = [Recording]()
     
@@ -101,6 +104,20 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(340, 520)
+    }
+    
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        if let prev = context.previouslyFocusedView as? ShowCell {
+            UIView.animateWithDuration(0.1, animations: { () -> Void in
+                prev.tvImg.frame.size = self.defaultSize
+            });
+        }
+        
+        if let next = context.nextFocusedView as? ShowCell {
+            UIView.animateWithDuration(0.1, animations: { () -> Void in
+                next.tvImg.frame.size = self.focusSize
+            });
+        }
     }
 }
 
