@@ -19,16 +19,14 @@ class Show {
     }
 }
 
-/*
 extension Array where Element : Show {
     // attempt to add the show if its not already in our array
-    mutating func addShow(show: Show) {
+    mutating func addShow(show: Element) {
         for item in self {
             if item.title == show.title {
                 return
             }
         }
-        self.append(show)
+        append(show)
     }
 }
-*/

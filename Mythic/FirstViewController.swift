@@ -50,7 +50,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                             for obj in programs {
                                 let recording = Recording(recDict: obj)
                                 self.recordings.append(recording)
-                                self.addShowIfNew(recording)
+                                self.shows.addShow(Show(recording: recording))
                             }
                             
                             dispatch_async(dispatch_get_main_queue()) {
@@ -70,16 +70,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         task.resume()
-    }
-
-    func addShowIfNew(recData: Recording) {
-        for show in self.shows {
-            if show.title == recData.title {
-                return
-            }
-        }
-
-        self.shows.append(Show(recording: recData))
     }
 
     override func didReceiveMemoryWarning() {
