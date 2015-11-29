@@ -23,7 +23,12 @@ extension Array where Element : Show {
     // attempt to add the show if its not already in our array
     mutating func addShow(show: Element) {
         for item in self {
+            // if this show is already in the list, don't add it
             if item.title == show.title {
+                // if the show doesn't have a poster, we want to add one
+                if item.posterPath == nil {
+                    item.posterPath = show.posterPath
+                }
                 return
             }
         }
