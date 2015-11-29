@@ -38,5 +38,6 @@ extension Array where Element : Show {
             }
         }
         append(show)
+        sortInPlace { $0.title < $1.title }
     }
 }
