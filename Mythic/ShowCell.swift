@@ -49,6 +49,8 @@ class ShowCell: UICollectionViewCell {
                     self.tvImg.image = img
                 }
             }
+        } else {
+            self.tvImg.image = UIImage(asset: .PofC)
         }
         
     }
