@@ -12,10 +12,12 @@ class Show {
 
     var title: String!
     var posterPath: String!
+    var recordings = [Recording]()
     
     init(recording: Recording) {
         self.title = recording.title
         self.posterPath = recording.posterPath
+        self.recordings.append(recording)
     }
 }
 
@@ -25,6 +27,9 @@ extension Array where Element : Show {
         for item in self {
             // if this show is already in the list, don't add it
             if item.title == show.title {
+                // add the recording to the show's recording list
+                item.recordings.appendContentsOf(show.recordings)
+                
                 // if the show doesn't have a poster, we want to add one
                 if item.posterPath == nil {
                     item.posterPath = show.posterPath
