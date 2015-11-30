@@ -22,14 +22,7 @@ class ShowCell: UICollectionViewCell {
         }
         
         if let path = show.posterPath {
-            let urlEncodedPath = path.stringByAddingPercentEncodingWithAllowedCharacters(
-                NSCharacterSet.URLQueryAllowedCharacterSet())
-            if urlEncodedPath == nil {
-                print("unable to URL encode path: \(path)")
-                return
-            }
-            
-            let url = NSURL(string: urlEncodedPath!)
+            let url = NSURL(string: path)
             
             if url == nil {
                 print("Invalid poster path: \(path)")

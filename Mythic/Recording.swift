@@ -48,23 +48,47 @@ class Recording {
                 self.recGroup = recGroup
             }
         }
-        
+
         // the best way to get the artwork is if the URL is included
         if let artworkObj = recDict["Artwork"] as? Dictionary<String, AnyObject> {
             if let artworkList = artworkObj["ArtworkInfos"] as? Array<Dictionary<String, String>> {
                 for artwork in artworkList {
                     if artwork["Type"] == "coverart" && artwork["URL"] != nil {
-                        self.posterPath = URL_BASE + artwork["URL"]!
+                        // URL escape the URL because MythTV doesn't do this for us
+                        var urlToUse = artwork["URL"]!.stringByAddingPercentEncodingWithAllowedCharacters(
+                            NSCharacterSet.URLQueryAllowedCharacterSet())
+
+                        /* The issue with not URL escaping the URL you provide is when
+                         * it uses a query string which then contains '&' in it. I which
+                         * I could say I was surprised at MythTV.
+                         */
+
+                        // The offending field is 'FileName', which luckily is the last one
+                        if let filenameRange = urlToUse?.rangeOfString("FileName=") {
+                            // for the range after 'FileName=' we need to replace '&' with '%26'
+                            let subrange = Range(start: filenameRange.endIndex, end: urlToUse!.endIndex)
+                            urlToUse = urlToUse!.stringByReplacingOccurrencesOfString("&", withString: "%26", options: NSStringCompareOptions.LiteralSearch, range: subrange)
+                        }
+
+                        // and lastly build up the good full URL
+                        if urlToUse != nil {
+                            self.posterPath = URL_BASE + urlToUse!
+                        }
+
+                        break
                     }
                 }
             }
         } else if self.inetref.isEmpty == false {
             // fallback if we have an inetref
-            self.posterPath = "\(URL_BASE)\(GRA)\(inetref)&Type=coverart"
+            var urlToUse = "\(URL_BASE)\(GRA)\(inetref)&Type=coverart"
             // if we have season info, let's use that as well
             if self.season.isEmpty == false {
-                self.posterPath = self.posterPath! + "&Season=\(self.season)"
+                urlToUse = urlToUse + "&Season=\(self.season)"
             }
+
+            self.posterPath = urlToUse.stringByAddingPercentEncodingWithAllowedCharacters(
+                NSCharacterSet.URLQueryAllowedCharacterSet())
         }
     }
 
