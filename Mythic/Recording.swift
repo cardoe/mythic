@@ -10,7 +10,6 @@ import Foundation
 
 class Recording {
 
-    let URL_BASE = "http://192.168.2.46:6544"
     let GRA = "/Content/GetRecordingArtwork?InetRef="
 
     var title: String!
@@ -21,7 +20,7 @@ class Recording {
     var recGroup: String!
     var posterPath: String!
     
-    init(recDict: Dictionary<String, AnyObject>) {
+    init(urlBase: String, recDict: Dictionary<String, AnyObject>) {
         if let title = recDict["Title"] as? String {
             self.title = title
         }
@@ -72,7 +71,7 @@ class Recording {
 
                         // and lastly build up the good full URL
                         if urlToUse != nil {
-                            self.posterPath = URL_BASE + urlToUse!
+                            self.posterPath = urlBase + urlToUse!
                         }
 
                         break
@@ -81,7 +80,7 @@ class Recording {
             }
         } else if self.inetref.isEmpty == false {
             // fallback if we have an inetref
-            var urlToUse = "\(URL_BASE)\(GRA)\(inetref)&Type=coverart"
+            var urlToUse = "\(urlBase)\(GRA)\(inetref)&Type=coverart"
             // if we have season info, let's use that as well
             if self.season.isEmpty == false {
                 urlToUse = urlToUse + "&Season=\(self.season)"
