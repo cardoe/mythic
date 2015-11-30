@@ -52,8 +52,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                             
                             for obj in programs {
                                 let recording = Recording(recDict: obj)
-                                self.recordings.append(recording)
-                                self.shows.addShow(Show(recording: recording))
+                                // MythTV appears to return junk data so let's check if its good first
+                                if recording.isRecording == true {
+                                    self.recordings.append(recording)
+                                    self.shows.addShow(Show(recording: recording))
+                                }
                             }
                             
                             dispatch_async(dispatch_get_main_queue()) {

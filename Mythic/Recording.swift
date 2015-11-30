@@ -18,6 +18,7 @@ class Recording {
     var inetref: String!
     var season: String!
     var startTime: String!
+    var recGroup: String!
     var posterPath: String!
     
     init(recDict: Dictionary<String, AnyObject>) {
@@ -36,6 +37,17 @@ class Recording {
         if let startTime = recDict["StartTime"] as? String {
             self.startTime = startTime
         }
+
+        /* the RecGroup contains where/why this was recorded on my machine:
+         * - "Default"
+         * - "Deleted"
+         * - "LiveTV"
+        */
+        if let recordingInfo = recDict["Recording"] as? Dictionary<String, AnyObject> {
+            if let recGroup = recordingInfo["RecGroup"] as? String {
+                self.recGroup = recGroup
+            }
+        }
         
         // the best way to get the artwork is if the URL is included
         if let artworkObj = recDict["Artwork"] as? Dictionary<String, AnyObject> {
@@ -53,6 +65,16 @@ class Recording {
             if self.season.isEmpty == false {
                 self.posterPath = self.posterPath! + "&Season=\(self.season)"
             }
+        }
+    }
+
+    var isRecording: Bool {
+        get {
+            if self.recGroup != "Deleted" && self.recGroup != "LiveTV" {
+                return true
+            }
+
+            return false
         }
     }
 }
