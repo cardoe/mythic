@@ -8,7 +8,7 @@ extension UIImage {
     case Content = "Content"
     case Top_Shelf_Image = "Top Shelf Image"
     case First = "first"
-    case PofC = "PofC"
+    case ImageUnavailable = "ImageUnavailable"
     case Second = "second"
 
     var image: UIImage {

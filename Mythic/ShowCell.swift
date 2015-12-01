@@ -43,7 +43,7 @@ class ShowCell: UICollectionViewCell {
                 }
             }
         } else {
-            self.tvImg.image = UIImage(asset: .PofC)
+            self.tvImg.image = UIImage(asset: .ImageUnavailable)
         }
         
     }
