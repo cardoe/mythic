@@ -49,7 +49,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                     if let programlist = dict!["ProgramList"] as? Dictionary<String, AnyObject> {
                         if let programs = programlist["Programs"] as? Array<Dictionary<String, AnyObject>> {
                         
-                            print(programs)
+                            //print(programs)
                             
                             for obj in programs {
                                 let recording = Recording(urlBase: self.URL_BASE, recDict: obj)
