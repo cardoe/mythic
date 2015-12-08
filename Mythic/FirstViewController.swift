@@ -10,8 +10,10 @@ import UIKit
 
 class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,  UICollectionViewDelegateFlowLayout {
 
-    let URL_BASE = "http://192.168.2.46:6544"
-    let GET_RECORDED_LIST = "/Dvr/GetRecordedList"
+    let MYTH_URL_SCHEME = "http://"
+    let ADDR = "192.168.2.46"
+    let MYTH_PORT = "6544"
+    let MYTH_GET_RECORDED_LIST = "/Dvr/GetRecordedList"
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,7 +34,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func downloadData() {
-        let url = NSURL(string: URL_BASE + GET_RECORDED_LIST)!
+        let url_base = MYTH_URL_SCHEME + ADDR + ":" + MYTH_PORT
+        let url = NSURL(string: url_base + MYTH_GET_RECORDED_LIST)!
         let request = NSMutableURLRequest(URL: url)
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let session = NSURLSession.sharedSession()
@@ -52,7 +55,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
                             //print(programs)
                             
                             for obj in programs {
-                                let recording = Recording(urlBase: self.URL_BASE, recDict: obj)
+                                let recording = Recording(urlBase: url_base, recDict: obj)
                                 // MythTV appears to return junk data so let's check if its good first
                                 if recording.isRecording == true {
                                     self.recordings.append(recording)
