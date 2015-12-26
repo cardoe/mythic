@@ -9,6 +9,7 @@
 import Foundation
 
 let MYTHBACKEND_MDNS_NAME = "_mythbackend._tcp"
+let SEARCH_TIMEOUT = 20.0
 
 class MythBackendBrowser : NSObject, NSNetServiceBrowserDelegate,
         NSNetServiceDelegate {
@@ -55,6 +56,18 @@ class MythBackendBrowser : NSObject, NSNetServiceBrowserDelegate,
 
     func search() {
         print("kicking off search for: \(MYTHBACKEND_MDNS_NAME)")
+
+        // SEARCH_TIMEOUT second timeout finding a MythTV backend before we error
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(NSEC_PER_SEC) * SEARCH_TIMEOUT))
+
+        dispatch_after(popTime, dispatch_get_main_queue()) {
+            SwiftSpinner.show("Unable to find your MythTV backend", animated: false)
+        }
+
+        // show the user some progress
+        SwiftSpinner.show("Finding your MythTV backend")
+
+        // and now for the actual search
         self.browser.searchForServicesOfType(MYTHBACKEND_MDNS_NAME, inDomain: "local")
     }
 
@@ -98,6 +111,8 @@ class MythBackendBrowser : NSObject, NSNetServiceBrowserDelegate,
             for sockAddr in (sender.addresses?.enumerate())! {
                 if let addr = self.convertSockAddrToString(sockAddr.element) {
                     self.mythBackendAddr = addr
+                    self.browser.stop()
+                    SwiftSpinner.hide()
                     break;
                 }
             }
