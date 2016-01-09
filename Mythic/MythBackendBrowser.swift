@@ -65,7 +65,9 @@ class MythBackendBrowser : NSObject, NSNetServiceBrowserDelegate,
         let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(NSEC_PER_SEC) * SEARCH_TIMEOUT))
 
         dispatch_after(popTime, dispatch_get_main_queue()) {
-            SwiftSpinner.show("Unable to find your MythTV backend", animated: false)
+            if self.mythBackendAddr == nil {
+                SwiftSpinner.show("Unable to find your MythTV backend", animated: false)
+            }
         }
 
         // show the user some progress
