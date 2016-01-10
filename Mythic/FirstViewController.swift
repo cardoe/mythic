@@ -114,6 +114,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     func tapped(gesture: UITapGestureRecognizer) {
         if let cell = gesture.view as? ShowCell {
             print("Tap: \(cell.show.title)")
+            self.performSegue(StoryboardSegue.Main.RecordedList, sender: cell.show)
         }
     }
     
@@ -140,6 +141,21 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
             UIView.animateWithDuration(0.1, animations: { () -> Void in
                 next.tvImg.frame.size = self.focusSize
             });
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        switch StoryboardSegue.Main(rawValue: segue.identifier!)! {
+        case .RecordedList:
+            if let splitVC = segue.destinationViewController as? UISplitViewController {
+                if let navVC = splitVC.viewControllers[0] as? UINavigationController {
+                    let recVC = navVC.topViewController as! RecordingTableViewController
+                    recVC.show = sender as! Show
+                }
+
+            }
         }
     }
 }

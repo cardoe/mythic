@@ -62,6 +62,7 @@
                                         <connections>
                                             <outlet property="tvImg" destination="vxC-ap-T3z" id="tOK-ch-dMk"/>
                                             <outlet property="tvLbl" destination="MNp-Ax-LqW" id="8dk-9y-d2F"/>
+                                            <segue destination="WEJ-TH-4FU" kind="show" identifier="recordedList" id="x3x-7b-85Z"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -83,6 +84,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2246" y="-640"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4ga-Dr-kBo">
+            <objects>
+                <viewController id="x9o-ng-aP0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9qP-3s-JOY"/>
+                        <viewControllerLayoutGuide type="bottom" id="2aj-sW-YXq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0rG-Ip-0fH">
+                        <rect key="frame" x="0.0" y="0.0" width="1285" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcD-cT-ZCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6650.5" y="-207"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="g8n-bs-bDK">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="y2J-EF-7I5" customClass="RecordingTableViewController" customModule="Mythic" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" id="9zz-mB-tez">
+                        <rect key="frame" x="0.0" y="0.0" width="634" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordedTableCell" id="50u-dU-5h6">
+                                <rect key="frame" x="0.0" y="199" width="594" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="50u-dU-5h6" id="S5A-gf-Vl1">
+                                    <rect key="frame" x="0.0" y="0.0" width="618" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="y2J-EF-7I5" id="vyv-0G-mg2"/>
+                            <outlet property="delegate" destination="y2J-EF-7I5" id="EWt-zx-R2W"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Osd-Xb-iUI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUU-43-m2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7181" y="-1343"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DqL-Cp-5Xe">
+            <objects>
+                <navigationController id="EYW-iA-g3p" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3WN-rr-lkw">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y2J-EF-7I5" kind="relationship" relationship="rootViewController" id="DL8-3r-app"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdo-P9-rmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6325" y="-1343"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="epM-rU-UpE">
+            <objects>
+                <splitViewController id="WEJ-TH-4FU" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="EYW-iA-g3p" kind="relationship" relationship="masterViewController" id="Lm5-sy-yMS"/>
+                        <segue destination="x9o-ng-aP0" kind="relationship" relationship="detailViewController" id="T1g-ZF-Qy3"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YB1-1V-KXY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4832" y="-782"/>
         </scene>
         <!--Live TV-->
         <scene sceneID="wg7-f3-ORb">

@@ -14,6 +14,8 @@
 		2F1BEB2F1BF423A900F685A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BEB2E1BF423A900F685A2 /* Assets.xcassets */; };
 		2F1BEB3A1BF423A900F685A2 /* MythicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1BEB391BF423A900F685A2 /* MythicTests.swift */; };
 		2F1BEB451BF423A900F685A2 /* MythicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1BEB441BF423A900F685A2 /* MythicUITests.swift */; };
+		2F5F012C1C41BD9700878339 /* RecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F012B1C41BD9700878339 /* RecordingTableViewController.swift */; };
+		2F5F012E1C41D61E00878339 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F012D1C41D61E00878339 /* Storyboards.swift */; };
 		2F875CF51C2E0B90008EEF63 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F875CF41C2E0B90008EEF63 /* SwiftSpinner.swift */; };
 		2FADC59E1C08E8B700DBC621 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FADC59D1C08E8B600DBC621 /* Show.swift */; };
 		2FB2727B1C0D730200981EEA /* MythBackendBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB272791C0D730200981EEA /* MythBackendBrowser.swift */; };
@@ -53,6 +55,8 @@
 		2F1BEB401BF423A900F685A2 /* MythicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MythicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F1BEB441BF423A900F685A2 /* MythicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythicUITests.swift; sourceTree = "<group>"; };
 		2F1BEB461BF423A900F685A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F5F012B1C41BD9700878339 /* RecordingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingTableViewController.swift; sourceTree = "<group>"; };
+		2F5F012D1C41D61E00878339 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		2F875CF41C2E0B90008EEF63 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		2FADC59D1C08E8B600DBC621 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		2FB272791C0D730200981EEA /* MythBackendBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MythBackendBrowser.swift; sourceTree = "<group>"; };
@@ -116,11 +120,13 @@
 				2F1BEB271BF423A900F685A2 /* FirstViewController.swift */,
 				2F1BEB291BF423A900F685A2 /* SecondViewController.swift */,
 				2F1BEB2B1BF423A900F685A2 /* Main.storyboard */,
+				2F5F012D1C41D61E00878339 /* Storyboards.swift */,
 				2F1BEB2E1BF423A900F685A2 /* Assets.xcassets */,
 				2F1BEB301BF423A900F685A2 /* Info.plist */,
 				2FE6CD811BF928C5008D0442 /* ShowCell.swift */,
 				2FADC59D1C08E8B600DBC621 /* Show.swift */,
 				2FFA9FAF1C0968B1003AF548 /* Recording.swift */,
+				2F5F012B1C41BD9700878339 /* RecordingTableViewController.swift */,
 			);
 			path = Mythic;
 			sourceTree = "<group>";
@@ -274,8 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFA9FB21C0AA26B003AF548 /* Images.swift in Sources */,
+				2F5F012C1C41BD9700878339 /* RecordingTableViewController.swift in Sources */,
 				2FB2727B1C0D730200981EEA /* MythBackendBrowser.swift in Sources */,
 				2F875CF51C2E0B90008EEF63 /* SwiftSpinner.swift in Sources */,
+				2F5F012E1C41D61E00878339 /* Storyboards.swift in Sources */,
 				2F1BEB2A1BF423A900F685A2 /* SecondViewController.swift in Sources */,
 				2FFA9FB01C0968B1003AF548 /* Recording.swift in Sources */,
 				2FE6CD821BF928C5008D0442 /* ShowCell.swift in Sources */,
