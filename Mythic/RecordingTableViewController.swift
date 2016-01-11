@@ -65,10 +65,10 @@ class RecordingTableViewController: UITableViewController {
     }
 
     func tapped(gesture: UITapGestureRecognizer) {
-        //if let cell = gesture.view {
-        print("Tapped")
-        self.playVideo()
-        //}
+        if let cell = gesture.view as? UITableViewCell {
+            print("Tapped: \(cell.textLabel?.text)")
+            self.playVideo()
+        }
     }
 
     func playVideo() {
