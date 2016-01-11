@@ -21,6 +21,8 @@ class RecordingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = show.title
+
         // Preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
 
