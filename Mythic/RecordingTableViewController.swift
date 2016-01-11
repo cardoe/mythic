@@ -43,12 +43,17 @@ class RecordingTableViewController: UITableViewController {
         return self.show.recordings.count
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RecordedTableCell", forIndexPath: indexPath)
         // Configure the cell...
         let recording = self.show.recordings[indexPath.row]
-        cell.textLabel?.text = recording.overview
+
+        // If the show doesn't have a subtitle (episode title) use the show name
+        if recording.subtitle.isEmpty {
+            cell.textLabel?.text = recording.title
+        } else {
+            cell.textLabel?.text = recording.subtitle
+        }
 
         if cell.gestureRecognizers?.count == nil {
             let tap = UITapGestureRecognizer(target: self, action: "tapped:")
