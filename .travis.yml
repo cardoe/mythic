@@ -1,0 +1,10 @@
+language: objective-c
+osx_image: xcode7.2
+
+xcode_project: Mythic.xcodeproj
+xcode_scheme: Travis
+
+before_install:
+    - brew update
+    - brew outdated xctool || brew upgrade xctool
+    - brew outdated swiftlint || brew upgrade swiftlint
